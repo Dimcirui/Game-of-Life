@@ -3,6 +3,13 @@
 import random
 import pandas as pd
 
+''' 
+Adding the sentence below in order to avoid 'using before assignment' errors.
+Actually this program runs normally even without this sentence. 
+But I don't know why!
+'''
+board1, board2 = {}, {}
+
 # Rules part ('*' means a live cell, ' ' means a dead cell)
 def run(size) :
     global board1,board2
@@ -56,7 +63,7 @@ if __name__ == '__main__' :
 
     ## Start
     while True :
-        key = input('Continue or not? Enter 'next' to continue，enter 'end' to exit.\n')
+        key = input('Continue or not? Enter \'next\' to continue，enter \'end\' to exit.\n')
         if 'next' == key :
             run(size)
             screen1 = pd.DataFrame(board1)
@@ -66,5 +73,5 @@ if __name__ == '__main__' :
             break
         else :
             print('Did you enter the right word? Please keyboard again.\n')
-            print('Continue or not? Enter 'next' to continue，enter 'end' to exit.\n')
+            print('Continue or not? Enter \'next\' to continue，enter \'end\' to exit.\n')
             continue
