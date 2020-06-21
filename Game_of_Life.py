@@ -1,12 +1,12 @@
 #! usr/bin/env python3
 
+import os
 import random
 import pandas as pd
 
 ''' 
 Adding the sentence below in order to avoid 'using before assignment' errors.
-Actually this program runs normally even without this sentence. 
-But I don't know why!
+Actually this program runs normally even without this sentence. But I don't know why at present.
 '''
 board1, board2 = {}, {}
 
@@ -58,16 +58,17 @@ if __name__ == '__main__' :
         else :
             board1[str(r1)][r2] = '*'
     ## Show board1.
-    screen1 = pd.DataFrame(board1)
-    print(screen1)
+    screen = pd.DataFrame(board1)
+    print(screen)
 
     ## Start
     while True :
-        key = input('Continue or not? Enter \'next\' to continue，enter \'end\' to exit.\n')
+        key = input('Continue or not? Enter \'y\' to continue，enter \'n\' to exit.\n')
         if 'next' == key :
+            os.system('cls')
             run(size)
-            screen1 = pd.DataFrame(board1)
-            print(screen1)
+            screen = pd.DataFrame(board1)
+            print(screen)
         elif 'end' == key :
             print('Good Bye!\n')
             break
