@@ -64,12 +64,12 @@ if __name__ == '__main__' :
     ## Start
     while True :
         key = input('Continue or not? Enter \'y\' to continue，enter \'n\' to exit.\n')
-        if 'next' == key :
+        if 'y' == key :
             os.system('cls')
             run(size)
             screen = pd.DataFrame(board1)
             print(screen)
-        elif 'end' == key :
+        elif 'n' == key :
             print('Good Bye!\n')
             break
         else :
