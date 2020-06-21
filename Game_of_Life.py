@@ -73,5 +73,4 @@ if __name__ == '__main__' :
             break
         else :
             print('Did you enter the right word? Please keyboard again.\n')
-            print('Continue or not? Enter \'next\' to continue，enter \'end\' to exit.\n')
             continue
