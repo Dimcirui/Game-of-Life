@@ -8,7 +8,7 @@ Here's how a cell interacts with its neighbors at each step:
 3.In other cases, any cell keeps dead (no matter whether it's live or dead).
 ## Basic Functions：  
 1.Customize board size  
-2.Customize number of the  
+2.Customize number of initial live cells
 ## Change Log：   
 ### [0.0.1] - 2020-6-21  
 Created this project   
