@@ -49,31 +49,31 @@ class Game_of_Life():
         self.GoL.geometry('{0}x{1}+100+100'.format(self.prog_width, self.prog_height))
         ##游戏画面
         self.game_GoL = Canvas(self.GoL, width=self.game_size, height=self.game_size, bg='white')
-        self.game_GoL.grid(row=0, column=0, rowspan=2, columnspan=2, padx=5, pady=5)
+        self.game_GoL.place(x=20, y=0)
         ##按钮
-        self.auto_button = Button(self.GoL, text='自动生成', command=self.auto_collect)
-        self.auto_button.grid(row=0, column=2, columnspan=2)
-        self.manual_button = Button(self.GoL, text='手动生成', command=self.manual_collect)
-        self.manual_button.grid(row=1, column=2)
-        self.set_switch_button = Button(self.GoL, text='手动设置细胞：关', command=self.set_switch)
-        self.set_switch_button.grid(row=1, column=3)
-        self.auto_step_button = Button(self.GoL, text='自动迭代', command=self.auto_step)
-        self.auto_step_button.grid(row=2, column=0)
-        self.pause_button = Button(self.GoL, text='暂停', command=self.pause)
-        self.pause_button.grid(row=3, column=0)
-        self.next_step_button = Button(self.GoL, text='下一步', command=self.next_step)
-        self.next_step_button.grid(row=2, column=1)
-        self.reset_button = Button(self.GoL, text='清空棋盘', command=self.reset)
-        self.reset_button.grid(row=3, column=1)
-        self.rule_button = Button(self.GoL, text='生命游戏\n说明', command=self.show_rule)
-        self.rule_button.grid(row=3, column=2, rowspan=2, columnspan=2)
-        self.init_sample_button = Button(self.GoL, text='选择', command=self.init_sample)
-        self.init_sample_button.grid(row=2, column=3)
+        self.auto_button = Button(self.GoL, text='自动生成', command=self.auto_collect, width=30, height=1)
+        self.auto_button.place(x=self.game_size+40, y=20)
+        self.manual_button = Button(self.GoL, text='手动生成', command=self.manual_collect, width=30, height=1)
+        self.manual_button.place(x=self.game_size+40, y=80)
+        self.set_switch_button = Button(self.GoL, text='手动设置细胞：关', command=self.set_switch, width=30, height=1)
+        self.set_switch_button.place(x=self.game_size+40, y=140)
+        self.auto_step_button = Button(self.GoL, text='自动迭代', command=self.auto_step, width=30, height=1)
+        self.auto_step_button.place(x=20, y=self.game_size+5)
+        self.pause_button = Button(self.GoL, text='暂停', command=self.pause, width=30, height=1)
+        self.pause_button.place(x=20, y=self.game_size+50)
+        self.next_step_button = Button(self.GoL, text='下一步', command=self.next_step, width=30, height=1)
+        self.next_step_button.place(x=250, y=self.game_size+5)
+        self.reset_button = Button(self.GoL, text='清空棋盘', command=self.reset, width=30, height=1)
+        self.reset_button.place(x=250, y=self.game_size+50)
+        self.rule_button = Button(self.GoL, text='生 命 游 戏\n说 明', command=self.show_rule, width=30, height=8)
+        self.rule_button.place(x=self.game_size+30, y=self.game_size-80)
+        self.init_sample_button = Button(self.GoL, text='选择', command=self.init_sample, width=30, height=1)
+        self.init_sample_button.place(x=self.game_size+40, y=240)
         ##预设键盘复选框
         self.var1 = StringVar()
         self.var1.set('预设棋盘')
         self.init_sample_optionmenu = OptionMenu(self.GoL, self.var1, *self.sample)
-        self.init_sample_optionmenu.grid(row=2, column=2)
+        self.init_sample_optionmenu.place(x=self.game_size+40, y=200)
         ##刷新界面
         self.GoL.after(self.auto_speed, self.refresh)
         ##初始界面
@@ -149,8 +149,8 @@ class Game_of_Life():
         self.game_GoL.bind('<Button-1>', self.mouse_set)
     def mouse_set(self, event):
         x, y = int(event.x / self.cell_size), int(event.y / self.cell_size) 
-        if x<self.size and y<self.size:
-            if self.set_switch_button['text'] == '手动设置细胞：开':
+        if self.set_switch_button['text'] == '手动设置细胞：开':
+            if self.board1[str(x)][y] == ' ':
                 self.board1[str(x)][y] = '*'
                 self.game_GoL.create_rectangle(self.cell_size*x, self.cell_size*y, self.cell_size*(x+1), self.cell_size*(y+1), fill='white')
             else:
@@ -212,7 +212,7 @@ class Game_of_Life():
             GliderY = [2, 3, 1, 2, 3]
             self.set_cell(GliderX, GliderY)
         elif sample == 'Gosper滑翔枪':
-            GGGX = [1, 1, 2, 2, 10, 10, 10, 11, 11, 12, 12, 13, 13, 14, 15, 15, 16, 16, 16, 17, 20, 20, 20, 21, 21, 21, 22, 22, 24, 24, 24, 24, 34, 34, 35, 35]
+            GGGX = [1, 1, 2, 2, 11, 11, 11, 12, 12, 13, 13, 14, 14, 15, 16, 16, 17, 17, 17, 18, 21, 21, 21, 22, 22, 22, 23, 23, 25, 25, 25, 25, 35, 35, 36, 36]
             GGGY = [5, 6, 5, 6, 4 , 5 , 6 , 3 , 7 , 2 , 8 , 2 , 8 , 5 , 3 , 7 , 4 , 5 , 6 , 5 , 2 , 3 , 4 , 2 , 3 , 4 , 1 , 5 , 0 , 1 , 5 , 6 , 2 , 3 , 2 , 3 ]
             self.set_cell(GGGX, GGGY)
         elif sample == 'π':

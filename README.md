@@ -15,8 +15,11 @@ Here's how a cell interacts with its neighbors at each step:
 ## Known Bugs:  
 No one yet  
 ## Change Log:   
+### [1.0.2] - 2020-11-12  
++ Optimized interface layout  
++ Fixed bug: Gosper Glider Gun cannot run normally  
 ### [1.0.1] - 2020-11-12
-+Fixed bug: When the "Add/Delete Live Cells" function is enabled, clicking other buttons will cause additional cells to be added/deleted in the upper left corner of the game interface. 
++ Fixed bug: When the "Add/Delete Live Cells" function is enabled, clicking other buttons will cause additional cells to be added/deleted in the upper left corner of the game interface. 
 ### [1.0.0] - 2020-11-12  
 + Added simplified GUI  
 + Added several basic graphics  
