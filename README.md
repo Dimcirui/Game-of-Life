@@ -6,9 +6,20 @@ Here's how a cell interacts with its neighbors at each step:
 1.Any dead cell with exactly three live neighbours becomes a live cell.  
 2.Any cell with two or three live neighbours keeps its states.  
 3.In other cases, any cell keeps dead (no matter whether it's live or dead).
-## Basic Functions：  
-1.Customize board size  
-2.Customize number of the  
-## Change Log：   
+## Basic Functions:  
+1.Simplified GUI  
+2.Customize board size  
+3.Customize number of initial live cells  
+4.Several basic graphics  
+5.Allowing live cell deletion in the game
+## Known Bugs:  
+
+## Change Log:   
+### [1.0.0] - 2020-11-12  
++
++
++
++
+-Removed terminal interface  
 ### [0.0.1] - 2020-6-21  
-Created this project   
++Created this project   
