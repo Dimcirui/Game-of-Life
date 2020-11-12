@@ -1,7 +1,6 @@
 from tkinter import *
 import tkinter.messagebox as mb 
 import tkinter.simpledialog as sd
-import threading
 import random as rd
 import time
 
@@ -147,11 +146,11 @@ class Game_of_Life():
     ##通过鼠标点击切换细胞状态
     def mouse_bind(self):
         self.set_switch_button['text'] = '手动设置细胞：开'
-        self.GoL.bind('<Button-1>', self.mouse_set)
+        self.game_GoL.bind('<Button-1>', self.mouse_set)
     def mouse_set(self, event):
         x, y = int(event.x / self.cell_size), int(event.y / self.cell_size) 
         if x<self.size and y<self.size:
-            if self.board1[str(x)][y] == ' ':
+            if self.set_switch_button['text'] == '手动设置细胞：开':
                 self.board1[str(x)][y] = '*'
                 self.game_GoL.create_rectangle(self.cell_size*x, self.cell_size*y, self.cell_size*(x+1), self.cell_size*(y+1), fill='white')
             else:
@@ -162,7 +161,7 @@ class Game_of_Life():
     def set_switch(self):
         if self.set_switch_button['text'] == '手动设置细胞：开':
             self.set_switch_button['text'] = '手动设置细胞：关'
-            self.GoL.unbind('<Button-1>')
+            self.game_GoL.unbind('<Button-1>')
         else:
             self.set_switch_button['text'] = '手动设置细胞：开'
             self.mouse_bind()
